@@ -1,0 +1,23 @@
+﻿{
+  "name": "TestBoxAssembly",
+  "rootNamespace": "",
+  "references": [
+    "Unity.TextMeshPro",
+    "Unity.Addressables",
+    "Unity.ResourceManager",
+    "Zenject",
+    "Leopotam.Ecs",
+    "Leopotam.Ecs.UnityIntegration",
+    "CoreAssembly",
+    "Tayx.Graphy"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

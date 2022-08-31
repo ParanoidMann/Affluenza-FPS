@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: TestBoxGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: TestBoxGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5e86cb325c840af47b3a105ad3427b3c
+  m_SerializeEntries:
+  - m_GUID: 0eb93defc9093164599050a7b19d95ae
+    m_Address: TestBoxGeometry
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f23dcae1bcec3fa4ea693f43c3d7a11f
+    m_Address: TestBoxCamera
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Debug
+  - m_GUID: 169f1eafa53dedc438fbfe64f72773b3
+    m_Address: TestBoxLight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Debug
+  - m_GUID: bca8a1b85b43759469612fef2ec40540
+    m_Address: GraphyManager
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Debug
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 73a065be00c06ae49a4ac6be9af2a8c9, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ce802f040135afc4d8a65e891807c062, type: 2}
+    - {fileID: 11400000, guid: a211c4e03a0b3804c8feaf6b009bee0c, type: 2}
