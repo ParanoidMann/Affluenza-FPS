@@ -8,27 +8,38 @@ namespace ParanoidMann.Affluenza.TestBox
 			IDisposable,
 			ITickable
 	{
-		private readonly EcsSystems _testBoxSystems;
+		private readonly EcsWorld _world;
+		private readonly TestBoxBuildSystem _buildSystem;
+
+		private EcsSystems _testBoxSystems;
 
 		[Inject]
 		private TestBoxSystemsBinder(
 				EcsWorld world,
 				TestBoxBuildSystem buildSystem)
 		{
-			_testBoxSystems = new EcsSystems(world);
+			_world = world;
+			_buildSystem = buildSystem;
+
+			Init();
+		}
+
+		public void Init()
+		{
+			_testBoxSystems = new EcsSystems(_world);
 			_testBoxSystems
-					.Add(buildSystem)
+					.Add(_buildSystem)
 					.Init();
 		}
 
 		public void Tick()
 		{
-			_testBoxSystems.Run();
+			_testBoxSystems?.Run();
 		}
 
 		public void Dispose()
 		{
-			_testBoxSystems.Destroy();
+			_testBoxSystems?.Destroy();
 		}
 	}
 }

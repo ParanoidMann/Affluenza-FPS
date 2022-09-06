@@ -3,6 +3,7 @@ using UnityEngine;
 using Tayx.Graphy;
 
 using ParanoidMann.Core;
+using ParanoidMann.Core.PLog;
 using ParanoidMann.MiniRogue.TestBox;
 
 namespace ParanoidMann.Affluenza.TestBox
@@ -18,13 +19,17 @@ namespace ParanoidMann.Affluenza.TestBox
 
 		public override void InstallBindings()
 		{
+			PLog.Info($"Started binding {GetType()}");
+
 			SubscribeSceneLoading();
 			BindViews();
+
+			PLog.Info($"Completed binding {GetType()}");
 		}
 
 		private void BindViews()
 		{
-			Container.Bind<TestBoxGeometry>().FromAddressable(AddressablePaths.TestBoxGeometry);
+			Container.Bind<TestBoxGeometryView>().FromAddressable(AddressablePaths.TestBoxGeometry);
 			Container.Bind<GraphyManager>().FromAddressable(AddressablePaths.GraphyManager);
 
 			Container.Bind<Camera>().WithId(SceneNames.TestBox).FromAddressable(AddressablePaths.TestBoxCamera);
@@ -33,7 +38,7 @@ namespace ParanoidMann.Affluenza.TestBox
 
 		protected override void OnSceneLoaded()
 		{
-			Container.Bind<TestBoxSystemsBinder>().AsSingle().NonLazy();
+			Container.BindInterfacesAndSelfTo<TestBoxSystemsBinder>().AsSingle().NonLazy();
 			Container.Bind(Systems).AsSingle();
 
 			Container.Resolve<TestBoxSystemsBinder>();

@@ -1,5 +1,5 @@
 ﻿{
-  "name": "TestBoxAssembly",
+  "name": "ActorAssembly",
   "rootNamespace": "",
   "references": [
     "Unity.TextMeshPro",
@@ -9,9 +9,7 @@
     "UniTask",
     "Leopotam.Ecs",
     "Leopotam.Ecs.UnityIntegration",
-    "Tayx.Graphy",
-    "CoreAssembly",
-    "ActorAssembly"
+    "CoreAssembly"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
