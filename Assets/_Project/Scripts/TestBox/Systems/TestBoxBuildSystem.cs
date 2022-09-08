@@ -26,11 +26,19 @@ namespace ParanoidMann.Affluenza.TestBox
 
 		public void Init()
 		{
-			var testBox = _prefabProvider.InstantiateOnScene<TestBoxGeometryView>(SceneNames.TestBox);
 			_prefabProvider.InstantiateOnScene<GraphyManager>(SceneNames.TestBox);
 			_prefabProvider.InstantiateOnScene<Light>(SceneNames.TestBox, SceneNames.TestBox);
 
+			TestBoxGeometryView testBox = BuildTestBox();
 			_actorBuilder.BuildPlayer(PlayerSubType.Player, testBox.SpawnPoint.position, testBox.transform);
+		}
+
+		private TestBoxGeometryView BuildTestBox()
+		{
+			var testBox = _prefabProvider.InstantiateOnScene<TestBoxGeometryView>(SceneNames.TestBox);
+			testBox.Surface.BuildNavMesh();
+
+			return testBox;
 		}
 	}
 }

@@ -10,6 +10,7 @@
     "Leopotam.Ecs",
     "Leopotam.Ecs.UnityIntegration",
     "Tayx.Graphy",
+    "NavMeshComponents",
     "CoreAssembly",
     "ActorAssembly"
   ],
