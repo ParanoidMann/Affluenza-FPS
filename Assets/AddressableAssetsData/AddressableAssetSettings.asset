@@ -79,7 +79,9 @@ MonoBehaviour:
       m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
-    m_LabelNames: []
+    m_LabelNames:
+    - Prefab
+    - Config
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 053b55cd54491e2419a3dc5d4d3a0151, type: 2}

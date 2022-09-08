@@ -2,13 +2,15 @@
 
 namespace ParanoidMann.Affluenza.Actor
 {
-	public abstract class ActorScriptableObject : ScriptableObject
+	internal abstract class ActorScriptableObject : ScriptableObject
 	{
+		[Header("Actor")]
 		[SerializeField]
 		private ActorView _actorView;
 
-		internal abstract ActorType ActorType { get; }
+		public abstract ActorType ActorType { get; }
+		public abstract int ActorSubType { get; }
 
-		internal ActorView ActorView => _actorView;
+		public ActorView ActorView => _actorView;
 	}
 }

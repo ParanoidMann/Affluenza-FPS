@@ -3,8 +3,13 @@
 namespace ParanoidMann.Affluenza.Actor
 {
 	[CreateAssetMenu(fileName = "Player", menuName = "Configs/Actor/Player", order = 1)]
-	public class PlayerScriptableObject : ActorScriptableObject
+	internal class PlayerScriptableObject : ActorScriptableObject
 	{
-		internal override ActorType ActorType => ActorType.Player;
+		[Header("Player")]
+		[SerializeField]
+		private PlayerSubType _subType;
+
+		public override ActorType ActorType => ActorType.Player;
+		public override int ActorSubType => (int)_subType;
 	}
 }

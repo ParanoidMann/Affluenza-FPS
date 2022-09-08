@@ -3,8 +3,13 @@
 namespace ParanoidMann.Affluenza.Actor
 {
 	[CreateAssetMenu(fileName = "NPC", menuName = "Configs/Actor/NPC", order = 3)]
-	public class NpcScriptableObject : ActorScriptableObject
+	internal class NpcScriptableObject : ActorScriptableObject
 	{
-		internal override ActorType ActorType => ActorType.Npc;
+		[Header("NPC")]
+		[SerializeField]
+		private NpcSubType _subType;
+
+		public override ActorType ActorType => ActorType.Npc;
+		public override int ActorSubType => (int)_subType;
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace ParanoidMann.Affluenza.Actor
 {
-	public struct ActorCreationComponent
+	internal struct ActorCreationComponent
 	{
 		public Vector3 SpawnPoint;
 		public Transform SpawnContainer;

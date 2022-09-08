@@ -6,7 +6,7 @@ namespace ParanoidMann.Affluenza.Actor
 	internal abstract class ActorBuildSystem :
 			IEcsRunSystem
 	{
-		private EcsFilter<ActorCreationComponent> _filter;
+		protected EcsFilter<ActorCreationComponent> _filter;
 
 		public abstract ActorType ActorType { get; }
 

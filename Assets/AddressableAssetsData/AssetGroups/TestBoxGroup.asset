@@ -20,22 +20,20 @@ MonoBehaviour:
   - m_GUID: 0eb93defc9093164599050a7b19d95ae
     m_Address: TestBoxGeometry
     m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: f23dcae1bcec3fa4ea693f43c3d7a11f
-    m_Address: TestBoxCamera
-    m_ReadOnly: 0
     m_SerializedLabels:
-    - Debug
+    - Prefab
   - m_GUID: 169f1eafa53dedc438fbfe64f72773b3
     m_Address: TestBoxLight
     m_ReadOnly: 0
     m_SerializedLabels:
     - Debug
+    - Prefab
   - m_GUID: bca8a1b85b43759469612fef2ec40540
     m_Address: GraphyManager
     m_ReadOnly: 0
     m_SerializedLabels:
     - Debug
+    - Prefab
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 73a065be00c06ae49a4ac6be9af2a8c9, type: 2}
   m_SchemaSet:

@@ -32,7 +32,6 @@ namespace ParanoidMann.Affluenza.TestBox
 			Container.Bind<TestBoxGeometryView>().FromAddressable(AddressablePaths.TestBoxGeometry);
 			Container.Bind<GraphyManager>().FromAddressable(AddressablePaths.GraphyManager);
 
-			Container.Bind<Camera>().WithId(SceneNames.TestBox).FromAddressable(AddressablePaths.TestBoxCamera);
 			Container.Bind<Light>().WithId(SceneNames.TestBox).FromAddressable(AddressablePaths.TestBoxLight);
 		}
 

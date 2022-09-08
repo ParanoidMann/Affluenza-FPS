@@ -13,6 +13,7 @@ namespace ParanoidMann.Affluenza.Actor
 
 			BindConfigs();
 			BindSystems();
+			BindServices();
 
 			Container.BindInterfacesAndSelfTo<ActorSystemsBinder>().AsSingle();
 			Container.Resolve<ActorSystemsBinder>();
@@ -22,12 +23,20 @@ namespace ParanoidMann.Affluenza.Actor
 
 		private void BindConfigs()
 		{
-			Container.Bind<PlayerScriptableObject>().FromAddressable(AddressablePaths.PlayerConfig);
+			Container.Bind<PlayerScriptableObject>().WithId(PlayerSubType.Player)
+					.FromAddressable(AddressablePaths.PlayerConfig);
 		}
 
 		private void BindSystems()
 		{
 			Container.Bind<PlayerBuildSystem>().AsSingle();
+			Container.Bind<EnemyBuildSystem>().AsSingle();
+			Container.Bind<NpcBuildSystem>().AsSingle();
+		}
+
+		private void BindServices()
+		{
+			Container.Bind<IActorBuilder>().To<ActorBuilder>().AsSingle();
 		}
 	}
 }
