@@ -22,12 +22,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Prefab
-  - m_GUID: 169f1eafa53dedc438fbfe64f72773b3
-    m_Address: TestBoxLight
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Debug
-    - Prefab
   - m_GUID: bca8a1b85b43759469612fef2ec40540
     m_Address: GraphyManager
     m_ReadOnly: 0

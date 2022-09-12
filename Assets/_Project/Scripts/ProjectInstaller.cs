@@ -1,6 +1,7 @@
 ﻿using Zenject;
 using Leopotam.Ecs;
 
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AddressableAssets;
 
@@ -25,7 +26,12 @@ namespace ParanoidMann.Affluenza
 			ActorInstaller.Install(Container);
 			TestBoxInstaller.Install(Container);
 
-			SceneManager.LoadScene(SceneNames.TestBox, LoadSceneMode.Additive);
+			SceneManager.LoadSceneAsync(SceneNames.TestBox, LoadSceneMode.Additive).completed += OnSceneLoaded;
+		}
+
+		private void OnSceneLoaded(AsyncOperation b)
+		{
+			SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneNames.TestBox));
 		}
 
 		private void OnDestroy()

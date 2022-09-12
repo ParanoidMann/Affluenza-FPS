@@ -1,5 +1,4 @@
 ﻿using Zenject;
-using UnityEngine;
 using Tayx.Graphy;
 using Leopotam.Ecs;
 
@@ -27,7 +26,6 @@ namespace ParanoidMann.Affluenza.TestBox
 		public void Init()
 		{
 			_prefabProvider.InstantiateOnScene<GraphyManager>(SceneNames.TestBox);
-			_prefabProvider.InstantiateOnScene<Light>(SceneNames.TestBox, SceneNames.TestBox);
 
 			TestBoxGeometryView testBox = BuildTestBox();
 			_actorBuilder.BuildPlayer(PlayerSubType.Player, testBox.SpawnPoint.position, testBox.transform);

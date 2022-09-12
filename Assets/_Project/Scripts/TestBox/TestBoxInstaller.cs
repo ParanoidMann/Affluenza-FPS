@@ -31,8 +31,6 @@ namespace ParanoidMann.Affluenza.TestBox
 		{
 			Container.Bind<TestBoxGeometryView>().FromAddressable(AddressablePaths.TestBoxGeometry);
 			Container.Bind<GraphyManager>().FromAddressable(AddressablePaths.GraphyManager);
-
-			Container.Bind<Light>().WithId(SceneNames.TestBox).FromAddressable(AddressablePaths.TestBoxLight);
 		}
 
 		protected override void OnSceneLoaded()
