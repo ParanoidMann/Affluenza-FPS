@@ -24,7 +24,7 @@ namespace ParanoidMann.Affluenza.TestBox
 			Init();
 		}
 
-		public void Init()
+		private void Init()
 		{
 			_testBoxSystems = new EcsSystems(_world);
 			_testBoxSystems

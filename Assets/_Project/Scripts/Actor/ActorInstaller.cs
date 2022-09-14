@@ -30,7 +30,10 @@ namespace ParanoidMann.Affluenza.Actor
 		private void BindSystems()
 		{
 			Container.Bind<PlayerBuildSystem>().AsSingle();
+			Container.Bind<PlayerMoveSystem>().AsSingle();
+
 			Container.Bind<EnemyBuildSystem>().AsSingle();
+
 			Container.Bind<NpcBuildSystem>().AsSingle();
 		}
 

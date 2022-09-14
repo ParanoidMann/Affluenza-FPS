@@ -1,5 +1,4 @@
 ﻿using System;
-using Zenject;
 using Leopotam.Ecs;
 using ParanoidMann.Core.PLog;
 
@@ -7,9 +6,7 @@ namespace ParanoidMann.Affluenza.Actor
 {
 	internal class NpcBuildSystem : ActorBuildSystem
 	{
-		private readonly DiContainer _container;
-
-		public override ActorType ActorType => ActorType.Npc;
+		protected override ActorType ActorType => ActorType.Npc;
 
 		protected override void Build(EcsEntity actorEntity)
 		{

@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   _actorView: {fileID: 829974090661144013, guid: 9b8ec4a1177a9564b806f8620203063a, type: 3}
+  _subType: 0
+  _moveSpeed: 0.2
+  _maxMoveDistance: 0.3

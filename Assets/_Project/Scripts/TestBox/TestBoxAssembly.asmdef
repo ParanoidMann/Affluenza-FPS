@@ -2,7 +2,6 @@
   "name": "TestBoxAssembly",
   "rootNamespace": "",
   "references": [
-    "Unity.TextMeshPro",
     "Unity.Addressables",
     "Unity.ResourceManager",
     "Zenject",

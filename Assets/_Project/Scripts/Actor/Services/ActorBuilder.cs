@@ -61,8 +61,8 @@ namespace ParanoidMann.Affluenza.Actor
 
 		private void BuildActor(ActorScriptableObject config, Vector3 spawnPoint, Transform spawnContainer)
 		{
-			EcsEntity player = _ecsWorld.NewEntity();
-			ref var playerCreation = ref player.Get<ActorCreationComponent>();
+			EcsEntity actor = _ecsWorld.NewEntity();
+			ref var playerCreation = ref actor.Get<ActorCreationComponent>();
 
 			playerCreation.ActorConfig = config;
 			playerCreation.SpawnContainer = spawnContainer;

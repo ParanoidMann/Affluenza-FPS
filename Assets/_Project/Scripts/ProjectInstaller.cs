@@ -7,6 +7,7 @@ using UnityEngine.AddressableAssets;
 
 using ParanoidMann.Core;
 using ParanoidMann.Affluenza.Actor;
+using ParanoidMann.Affluenza.Input;
 using ParanoidMann.Affluenza.TestBox;
 
 namespace ParanoidMann.Affluenza
@@ -23,6 +24,7 @@ namespace ParanoidMann.Affluenza
 			Container.Bind<EcsWorld>().FromInstance(_ecsWorld).AsSingle();
 
 			CoreInstaller.Install(Container);
+			InputInstaller.Install(Container);
 			ActorInstaller.Install(Container);
 			TestBoxInstaller.Install(Container);
 

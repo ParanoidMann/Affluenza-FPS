@@ -1,5 +1,5 @@
 ﻿{
-  "name": "ActorAssembly",
+  "name": "InputAssembly",
   "rootNamespace": "",
   "references": [
     "Unity.Addressables",
@@ -8,8 +8,7 @@
     "UniTask",
     "Leopotam.Ecs",
     "Leopotam.Ecs.UnityIntegration",
-    "CoreAssembly",
-    "InputAssembly"
+    "CoreAssembly"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
