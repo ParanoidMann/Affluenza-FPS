@@ -1215,6 +1215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navMeshAgent: {fileID: 6917180400887794820}
+  _camera: {fileID: 4720138747926701220}
 --- !u!1 &8484560693951317098
 GameObject:
   m_ObjectHideFlags: 0

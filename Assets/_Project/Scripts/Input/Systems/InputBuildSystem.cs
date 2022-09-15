@@ -1,6 +1,7 @@
 ﻿using Zenject;
 using UnityEngine;
 using Leopotam.Ecs;
+using ParanoidMann.Core.PLog;
 
 namespace ParanoidMann.Affluenza.Input
 {
@@ -21,7 +22,7 @@ namespace ParanoidMann.Affluenza.Input
 
 			ref var inputBase = ref input.Get<InputBaseComponent>();
 			ref var moveInput = ref input.Get<MoveInputComponent>();
-			ref var manipulatorInput = ref input.Get<ManipulatorInputComponent>();
+			ref var manipulatorInput = ref input.Get<RotationInputComponent>();
 
 			inputBase.IsInputActive = false;
 
@@ -38,6 +39,10 @@ namespace ParanoidMann.Affluenza.Input
 			{
 				ref var desktopPlatform = ref input.Get<DesktopPlatformComponent>();
 				desktopPlatform.IsEditor = true;
+			}
+			else
+			{
+				PLog.Fatal($"{Application.platform} platform isn't supported");
 			}
 		}
 	}

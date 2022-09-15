@@ -6,6 +6,7 @@ namespace ParanoidMann.Affluenza.Actor
 	[RequireComponent(typeof(NavMeshAgent))]
 	internal class ActorView : MonoBehaviour
 	{
+		[Header("Actor")]
 		[SerializeField]
 		private NavMeshAgent _navMeshAgent;
 

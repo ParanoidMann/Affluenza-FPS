@@ -9,7 +9,9 @@ namespace ParanoidMann.Affluenza.Input
 			ITickable
 	{
 		private readonly EcsWorld _world;
+
 		private readonly InputBuildSystem _inputBuildSystem;
+		private readonly SettingsBuildSystem _settingsBuildSystem;
 
 		private readonly DesktopMoveInputSystem _desktopMoveInputSystem;
 		private readonly DesktopManipulatorInputSystem _desktopManipulatorInputSystem;
@@ -20,11 +22,14 @@ namespace ParanoidMann.Affluenza.Input
 		private InputSystemsBinder(
 				EcsWorld world,
 				InputBuildSystem inputBuildSystem,
+				SettingsBuildSystem settingsBuildSystem,
 				DesktopMoveInputSystem desktopMoveInputSystem,
 				DesktopManipulatorInputSystem desktopManipulatorInputSystem)
 		{
 			_world = world;
+
 			_inputBuildSystem = inputBuildSystem;
+			_settingsBuildSystem = settingsBuildSystem;
 
 			_desktopMoveInputSystem = desktopMoveInputSystem;
 			_desktopManipulatorInputSystem = desktopManipulatorInputSystem;
@@ -37,6 +42,7 @@ namespace ParanoidMann.Affluenza.Input
 			_inputSystems = new EcsSystems(_world);
 			_inputSystems
 					.Add(_inputBuildSystem)
+					.Add(_settingsBuildSystem)
 					.Add(_desktopMoveInputSystem)
 					.Add(_desktopManipulatorInputSystem)
 					.Init();

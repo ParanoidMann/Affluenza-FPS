@@ -4,6 +4,6 @@ namespace ParanoidMann.Affluenza.Input
 {
 	public struct MoveInputComponent
 	{
-		public Vector3 MoveDirection;
+		public Vector3 Direction;
 	}
 }

@@ -19,6 +19,7 @@ namespace ParanoidMann.Affluenza.Input
 
 		private void BindSystems()
 		{
+			Container.Bind<SettingsBuildSystem>().AsSingle();
 			Container.Bind<InputBuildSystem>().AsSingle();
 
 			Container.Bind<DesktopMoveInputSystem>().AsSingle();

@@ -29,7 +29,7 @@ namespace ParanoidMann.Affluenza.Actor
 						ref var playerBase = ref playerEntity.Get<ActorBaseComponent>();
 						ref var playerInfo = ref playerEntity.Get<PlayerComponent>();
 
-						MovePlayer(moveInput, ref playerBase, ref playerInfo);
+						MovePlayer(moveInput, playerBase, playerInfo);
 					}
 				}
 			}
@@ -37,11 +37,15 @@ namespace ParanoidMann.Affluenza.Actor
 
 		private void MovePlayer(
 				MoveInputComponent moveInput,
-				ref ActorBaseComponent playerBase,
-				ref PlayerComponent playerInfo)
+				ActorBaseComponent playerBase,
+				PlayerComponent playerInfo)
 		{
 			Transform transform = playerBase.GameObject.transform;
-			Vector3 newPosition = transform.position + moveInput.MoveDirection * playerInfo.MoveSpeed;
+			Vector3 moveDirection = moveInput.Direction * playerInfo.MoveSpeed;
+
+			Vector3 newPosition = transform.position
+					+ transform.right * moveDirection.x
+					+ transform.forward * moveDirection.z;
 
 			if (NavMesh.SamplePosition(
 						newPosition,

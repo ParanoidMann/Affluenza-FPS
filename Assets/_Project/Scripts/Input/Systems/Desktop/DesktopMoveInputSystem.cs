@@ -18,7 +18,8 @@ namespace ParanoidMann.Affluenza.Input
 				float horizontalMove = UnityEngine.Input.GetAxisRaw("Horizontal");
 				float verticalMove = UnityEngine.Input.GetAxisRaw("Vertical");
 
-				moveInputComponent.MoveDirection = new Vector3(horizontalMove, 0.0f, verticalMove);
+				Vector3 moveDirection = new Vector3(horizontalMove, 0.0f, verticalMove) * Time.deltaTime;
+				moveInputComponent.Direction = moveDirection;
 			}
 		}
 	}

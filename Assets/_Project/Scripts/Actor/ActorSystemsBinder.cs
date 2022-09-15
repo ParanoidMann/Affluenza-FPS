@@ -12,6 +12,7 @@ namespace ParanoidMann.Affluenza.Actor
 
 		private readonly PlayerBuildSystem _playerBuildSystem;
 		private readonly PlayerMoveSystem _playerMoveSystem;
+		private readonly PlayerRotationSystem _playerRotationSystem;
 
 		private EcsSystems _actorSystems;
 
@@ -19,12 +20,14 @@ namespace ParanoidMann.Affluenza.Actor
 		private ActorSystemsBinder(
 				EcsWorld world,
 				PlayerBuildSystem playerBuildSystem,
-				PlayerMoveSystem playerMoveSystem)
+				PlayerMoveSystem playerMoveSystem,
+				PlayerRotationSystem playerRotationSystem)
 		{
 			_world = world;
 
 			_playerBuildSystem = playerBuildSystem;
 			_playerMoveSystem = playerMoveSystem;
+			_playerRotationSystem = playerRotationSystem;
 
 			Init();
 		}
@@ -35,6 +38,7 @@ namespace ParanoidMann.Affluenza.Actor
 			_actorSystems
 					.Add(_playerBuildSystem)
 					.Add(_playerMoveSystem)
+					.Add(_playerRotationSystem)
 					.Init();
 		}
 
