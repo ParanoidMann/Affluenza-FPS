@@ -21,8 +21,8 @@ namespace ParanoidMann.Affluenza.Input
 
 			// TODO : Load from cache
 			settingsComponent.MinVerticalCameraAngle = -90.0f;
-			settingsComponent.MaxVerticalCameraAngle = 90.0f;
-			settingsComponent.Sensitivity = 100.0f;
+			settingsComponent.MaxVerticalCameraAngle = 70.0f;
+			settingsComponent.Sensitivity = 150.0f;
 			settingsComponent.InvertVertical = false;
 		}
 	}
