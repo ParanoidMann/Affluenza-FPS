@@ -4,6 +4,7 @@
 		_NoiseIntensity   ("Noise Intensity", Range(0, 1)) = 0.2
 		_Brightness       ("Brightness", Range(-1, 1)) = 0.3
 		_Contrast         ("Contrast", Range(0, 1.5)) = 1
+		_LinesCount		  ("Lines Count", Range(0, 50000)) = 43758
 		[NoScaleOffset]_NoiseTex ("Noise", 2D) = "black" {}
 	}
 	SubShader {
@@ -15,7 +16,7 @@
 			#include "UnityCG.cginc"
 
 			sampler2D _MainTex, _NoiseTex;
-			float _NoiseIntensity, _Contrast, _Brightness;
+			float _LinesCount, _NoiseIntensity, _Contrast, _Brightness;
 
 			float3 YUV2RGB (float3 c)
 			{
@@ -44,15 +45,15 @@
 			float random (float2 v)
 			{
 				float sn = mod(dot(v, float2(12.9898, 78.233)), 3.14);
-				return frac(sin(sn) * 43758.5453);
+				return frac(sin(sn) * _LinesCount);
 			}
 			half4 frag (v2f_img input) : SV_Target
 			{
 				half t = _Time.x;
 				float2 uvst = input.uv;
 				float2 uv = uvst;
-				if (uv.y < 0.025) uv.x += (uv.y - 0.05) * (sin(uv.y * 512 + t * 12));
-				if (uv.y < 0.015) uv.x += (uv.y - 0.05) * (sin(uv.y * 512 + t * 64));
+				// if (uv.y < 0.025) uv.x += (uv.y - 0.05) * (sin(uv.y * 512 + t * 12));
+				// if (uv.y < 0.015) uv.x += (uv.y - 0.05) * (sin(uv.y * 512 + t * 64));
 
 				float uvy = floor(uv.y * 288) / 288;
 				float uvx = random(float2(t * 0.013, uvy * 0.42)) * 0.004;

@@ -464,7 +464,7 @@ MonoBehaviour:
   colorDepth: {x: 16, y: 16, z: 16}
   ditherDepth: {x: 8, y: 8, z: 8}
   ditheringMatrixSize: 0
-  _Shader: {fileID: 4800000, guid: 364a79f75940cde409d6c07092dacd71, type: 3}
+  _Shader: {fileID: 4800000, guid: d798d1968e2101f4993d8f166bdbc9bb, type: 3}
 --- !u!1 &3603022057216509708
 GameObject:
   m_ObjectHideFlags: 0

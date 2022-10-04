@@ -1,4 +1,6 @@
 ﻿using Zenject;
+
+using ParanoidMann.Core;
 using ParanoidMann.Core.PLog;
 
 namespace ParanoidMann.Affluenza.Input
@@ -10,6 +12,7 @@ namespace ParanoidMann.Affluenza.Input
 			PLog.Info($"Started binding {GetType()}");
 
 			BindSystems();
+			BindConfigs();
 
 			Container.BindInterfacesAndSelfTo<InputSystemsBinder>().AsSingle();
 			Container.Resolve<InputSystemsBinder>();
@@ -24,6 +27,11 @@ namespace ParanoidMann.Affluenza.Input
 
 			Container.Bind<DesktopMoveInputSystem>().AsSingle();
 			Container.Bind<DesktopManipulatorInputSystem>().AsSingle();
+		}
+
+		private void BindConfigs()
+		{
+			Container.Bind<GameSettingsScriptableObject>().FromAddressable(AddressablePaths.GameSettings);
 		}
 	}
 }
