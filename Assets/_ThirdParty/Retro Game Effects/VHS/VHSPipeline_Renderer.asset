@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: VHSFeature
   m_EditorClassIdentifier: 
   m_Active: 1
-  m_Style: 1
+  m_Style: 2
   m_Style1:
     m_Mat: {fileID: 2100000, guid: f55ce9ff93c64a140a8d94d30998405e, type: 2}
     m_MatTV: {fileID: 2100000, guid: 0a0a040f758c55a43abecd5abbe9b2db, type: 2}

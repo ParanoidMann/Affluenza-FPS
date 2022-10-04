@@ -41,3 +41,4 @@ Material:
     - _SineLinesSpeed: 20
     - _SineLinesThreshold: 0.055
     m_Colors: []
+  m_BuildTextureStacks: []

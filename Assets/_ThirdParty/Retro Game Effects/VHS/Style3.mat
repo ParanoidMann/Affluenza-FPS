@@ -50,14 +50,16 @@ Material:
     - _ChromaticAberration: 0
     - _ColorBleedAmount: 0
     - _ColorBleedIterations: 0
-    - _Contrast: 1
+    - _Contrast: 0.149
     - _LensDistortion: 1.2
     - _LineAmount: 1
+    - _LinesCount: 0
     - _LinesDisplacement: 0
     - _LinesSpeed: 0
-    - _NoiseIntensity: 0.2
+    - _NoiseIntensity: 0.04
     - _SineLinesAmount: 1
     - _SineLinesDisplacement: 0
     - _SineLinesSpeed: 0
     - _SineLinesThreshold: 0
     m_Colors: []
+  m_BuildTextureStacks: []

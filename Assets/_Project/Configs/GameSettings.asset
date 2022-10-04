@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9319e85dfd4d248b39ceee1a4f74e2, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
+  _renderPipelineAsset: {fileID: 11400000, guid: 0c7c7d46b8cc6fc4bb18b82fb3ae3a55, type: 2}
+  _minVerticalCameraAngle: -90
+  _maxVerticalCameraAngle: 70
