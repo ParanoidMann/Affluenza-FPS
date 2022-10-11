@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actorView: {fileID: 8146873970527956324, guid: 8132740c9b8873544b70e80df29c9f55, type: 3}
   _subType: 1
-  _moveSpeed: 1
+  _moveSpeed: 8
   _maxMoveDistance: 0.3
