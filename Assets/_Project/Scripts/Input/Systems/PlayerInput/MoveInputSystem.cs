@@ -3,10 +3,10 @@ using Leopotam.Ecs;
 
 namespace ParanoidMann.Affluenza.Input
 {
-	internal class DesktopMoveInputSystem :
+	internal class MoveInputSystem :
 			IEcsRunSystem
 	{
-		private EcsFilter<MoveInputComponent, DesktopPlatformComponent> _filter;
+		private EcsFilter<MoveInputComponent> _filter;
 
 		public void Run()
 		{

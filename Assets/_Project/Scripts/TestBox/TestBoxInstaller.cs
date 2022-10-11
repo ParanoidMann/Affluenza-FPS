@@ -28,8 +28,8 @@ namespace ParanoidMann.Affluenza.TestBox
 
 		private void BindViews()
 		{
-			Container.Bind<TestBoxGeometryView>().FromAddressable(AddressablePaths.TestBoxGeometry);
-			Container.Bind<GraphyManager>().FromAddressable(AddressablePaths.GraphyManager);
+			Container.Bind<TestBoxGeometryView>().FromAddressable(AddressablePaths.TestBoxGeometry).AsSingle();
+			Container.Bind<GraphyManager>().FromAddressable(AddressablePaths.GraphyManager).AsSingle();
 		}
 
 		protected override void OnSceneLoaded()

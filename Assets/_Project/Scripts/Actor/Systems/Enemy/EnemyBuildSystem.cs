@@ -7,6 +7,7 @@ namespace ParanoidMann.Affluenza.Actor
 	internal class EnemyBuildSystem : ActorBuildSystem
 	{
 		protected override ActorType ActorType => ActorType.Enemy;
+		protected override int ActorSubType => (int)EnemySubType.Enemy;
 
 		protected override void Build(EcsEntity actorEntity)
 		{

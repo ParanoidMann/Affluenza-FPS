@@ -2,7 +2,7 @@
 
 namespace ParanoidMann.Affluenza.Actor
 {
-	[CreateAssetMenu(fileName = "NPC", menuName = "Configs/Actor/NPC", order = 3)]
+	[CreateAssetMenu(fileName = "NPC", menuName = "Configs/Actor/NPC", order = 300)]
 	internal class NpcScriptableObject : ActorScriptableObject
 	{
 		[Header("NPC")]

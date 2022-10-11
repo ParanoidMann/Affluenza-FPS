@@ -22,6 +22,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Config
+  - m_GUID: 33cfde89d69e5064888d9a76f28cfdaf
+    m_Address: PlayerWithWeaponConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 73a065be00c06ae49a4ac6be9af2a8c9, type: 2}
   m_SchemaSet:

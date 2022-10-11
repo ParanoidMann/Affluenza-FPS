@@ -23,15 +23,16 @@ namespace ParanoidMann.Affluenza.Input
 		private void BindSystems()
 		{
 			Container.Bind<SettingsBuildSystem>().AsSingle();
-			Container.Bind<InputBuildSystem>().AsSingle();
 
-			Container.Bind<DesktopMoveInputSystem>().AsSingle();
-			Container.Bind<DesktopManipulatorInputSystem>().AsSingle();
+			Container.Bind<InputBuildSystem>().AsSingle();
+			Container.Bind<MoveInputSystem>().AsSingle();
+			Container.Bind<RotationInputSystem>().AsSingle();
+			Container.Bind<InteractionInputSystem>().AsSingle();
 		}
 
 		private void BindConfigs()
 		{
-			Container.Bind<GameSettingsScriptableObject>().FromAddressable(AddressablePaths.GameSettings);
+			Container.Bind<GameSettingsScriptableObject>().FromAddressable(AddressablePaths.GameSettings).AsSingle();
 		}
 	}
 }

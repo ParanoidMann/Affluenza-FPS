@@ -9,6 +9,7 @@ namespace ParanoidMann.Affluenza.Actor
 		protected EcsFilter<ActorCreationComponent> _creationFilter;
 
 		protected abstract ActorType ActorType { get; }
+		protected abstract int ActorSubType { get; }
 
 		protected abstract void Build(EcsEntity actorEntity);
 
@@ -19,7 +20,8 @@ namespace ParanoidMann.Affluenza.Actor
 				ref EcsEntity entity = ref _creationFilter.GetEntity(filterIdx);
 				ref var creationComponent = ref entity.Get<ActorCreationComponent>();
 
-				if (ActorType == creationComponent.ActorConfig.ActorType)
+				if (ActorType == creationComponent.ActorConfig.ActorType
+					&& ActorSubType == creationComponent.ActorConfig.ActorSubType)
 				{
 					Build(entity);
 					entity.Del<ActorCreationComponent>();

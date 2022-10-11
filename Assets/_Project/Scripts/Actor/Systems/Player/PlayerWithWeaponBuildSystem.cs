@@ -6,17 +6,17 @@ using ParanoidMann.Affluenza.Input;
 
 namespace ParanoidMann.Affluenza.Actor
 {
-	internal class PlayerBuildSystem : ActorBuildSystem
+	internal class PlayerWithWeaponBuildSystem : ActorBuildSystem
 	{
 		private EcsFilter<InputBaseComponent> _inputFilter;
 
 		protected override ActorType ActorType => ActorType.Player;
-		protected override int ActorSubType => (int)PlayerSubType.Player;
+		protected override int ActorSubType => (int)PlayerSubType.PlayerWithWeapon;
 
 		protected override void Build(EcsEntity actorEntity)
 		{
 			ref var creationComponent = ref actorEntity.Get<ActorCreationComponent>();
-			if (creationComponent.ActorConfig is PlayerScriptableObject playerConfig)
+			if (creationComponent.ActorConfig is PlayerWithWeaponScriptableObject playerConfig)
 			{
 				CreateActorBase(actorEntity, creationComponent);
 				FillPlayer(actorEntity, playerConfig);
@@ -32,6 +32,7 @@ namespace ParanoidMann.Affluenza.Actor
 		private void FillPlayer(EcsEntity playerEntity, PlayerScriptableObject playerConfig)
 		{
 			ref var playerComponent = ref playerEntity.Get<PlayerComponent>();
+			ref var playerWithWeaponComponent = ref playerEntity.Get<PlayerWithWeaponComponent>();
 
 			playerComponent.MoveSpeed = playerConfig.MoveSpeed;
 			playerComponent.MaxMoveDistance = playerConfig.MaxMoveDistance;

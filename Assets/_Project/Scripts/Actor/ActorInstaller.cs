@@ -24,14 +24,18 @@ namespace ParanoidMann.Affluenza.Actor
 		private void BindConfigs()
 		{
 			Container.Bind<PlayerScriptableObject>().WithId(PlayerSubType.Player)
-					.FromAddressable(AddressablePaths.PlayerConfig);
+					.FromAddressable(AddressablePaths.PlayerConfig).AsCached();
+			Container.Bind<PlayerScriptableObject>().WithId(PlayerSubType.PlayerWithWeapon)
+					.FromAddressable(AddressablePaths.PlayerWithWeaponConfig).AsCached();
 		}
 
 		private void BindSystems()
 		{
 			Container.Bind<PlayerBuildSystem>().AsSingle();
+			Container.Bind<PlayerWithWeaponBuildSystem>().AsSingle();
 			Container.Bind<PlayerMoveSystem>().AsSingle();
 			Container.Bind<PlayerRotationSystem>().AsSingle();
+			Container.Bind<PlayerFlashlightSystem>().AsSingle();
 
 			Container.Bind<EnemyBuildSystem>().AsSingle();
 

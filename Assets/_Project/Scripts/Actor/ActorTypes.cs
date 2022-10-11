@@ -20,10 +20,12 @@ namespace ParanoidMann.Affluenza.Actor
 	[Serializable]
 	public enum EnemySubType
 	{
+		Enemy = 0
 	}
 
 	[Serializable]
 	public enum NpcSubType
 	{
+		Npc = 0
 	}
 }

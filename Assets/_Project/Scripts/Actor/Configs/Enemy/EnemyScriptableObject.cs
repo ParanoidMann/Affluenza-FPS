@@ -2,7 +2,7 @@
 
 namespace ParanoidMann.Affluenza.Actor
 {
-	[CreateAssetMenu(fileName = "Enemy", menuName = "Configs/Actor/Enemy", order = 2)]
+	[CreateAssetMenu(fileName = "Enemy", menuName = "Configs/Actor/Enemy", order = 200)]
 	internal class EnemyScriptableObject : ActorScriptableObject
 	{
 		[Header("Enemy")]

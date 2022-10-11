@@ -10,29 +10,32 @@ namespace ParanoidMann.Affluenza.Input
 	{
 		private readonly EcsWorld _world;
 
-		private readonly InputBuildSystem _inputBuildSystem;
 		private readonly SettingsBuildSystem _settingsBuildSystem;
 
-		private readonly DesktopMoveInputSystem _desktopMoveInputSystem;
-		private readonly DesktopManipulatorInputSystem _desktopManipulatorInputSystem;
+		private readonly MoveInputSystem _moveInputSystem;
+		private readonly InputBuildSystem _inputBuildSystem;
+		private readonly RotationInputSystem _rotationInputSystem;
+		private readonly InteractionInputSystem _interactionInputSystem;
 
 		private EcsSystems _inputSystems;
 
 		[Inject]
 		private InputSystemsBinder(
 				EcsWorld world,
-				InputBuildSystem inputBuildSystem,
 				SettingsBuildSystem settingsBuildSystem,
-				DesktopMoveInputSystem desktopMoveInputSystem,
-				DesktopManipulatorInputSystem desktopManipulatorInputSystem)
+				MoveInputSystem moveInputSystem,
+				InputBuildSystem inputBuildSystem,
+				RotationInputSystem rotationInputSystem,
+				InteractionInputSystem interactionInputSystem)
 		{
 			_world = world;
 
-			_inputBuildSystem = inputBuildSystem;
 			_settingsBuildSystem = settingsBuildSystem;
 
-			_desktopMoveInputSystem = desktopMoveInputSystem;
-			_desktopManipulatorInputSystem = desktopManipulatorInputSystem;
+			_moveInputSystem = moveInputSystem;
+			_inputBuildSystem = inputBuildSystem;
+			_rotationInputSystem = rotationInputSystem;
+			_interactionInputSystem = interactionInputSystem;
 
 			Init();
 		}
@@ -41,10 +44,11 @@ namespace ParanoidMann.Affluenza.Input
 		{
 			_inputSystems = new EcsSystems(_world);
 			_inputSystems
-					.Add(_inputBuildSystem)
 					.Add(_settingsBuildSystem)
-					.Add(_desktopMoveInputSystem)
-					.Add(_desktopManipulatorInputSystem)
+					.Add(_inputBuildSystem)
+					.Add(_moveInputSystem)
+					.Add(_rotationInputSystem)
+					.Add(_interactionInputSystem)
 					.Init();
 		}
 

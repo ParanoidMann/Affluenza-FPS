@@ -28,7 +28,7 @@ namespace ParanoidMann.Affluenza.TestBox
 			_prefabProvider.InstantiateOnScene<GraphyManager>(SceneNames.TestBox);
 
 			TestBoxGeometryView testBox = BuildTestBox();
-			_actorBuilder.BuildPlayer(PlayerSubType.Player, testBox.SpawnPoint.position, testBox.transform);
+			_actorBuilder.BuildPlayer(PlayerSubType.PlayerWithWeapon, testBox.SpawnPoint.position, testBox.transform);
 		}
 
 		private TestBoxGeometryView BuildTestBox()

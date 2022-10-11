@@ -3,23 +3,23 @@ using Leopotam.Ecs;
 
 namespace ParanoidMann.Affluenza.Input
 {
-	internal class DesktopManipulatorInputSystem :
+	internal class RotationInputSystem :
 			IEcsRunSystem
 	{
-		private EcsFilter<RotationInputComponent, DesktopPlatformComponent> _filter;
+		private EcsFilter<RotationInputComponent> _filter;
 
 		public void Run()
 		{
 			foreach (int filterIdx in _filter)
 			{
 				ref EcsEntity entity = ref _filter.GetEntity(filterIdx);
-				ref var manipulatorInputComponent = ref entity.Get<RotationInputComponent>();
+				ref var rotationInputComponent = ref entity.Get<RotationInputComponent>();
 
 				float horizontalRotation = UnityEngine.Input.GetAxis("Mouse X");
 				float verticalRotation = UnityEngine.Input.GetAxis("Mouse Y");
 
 				Vector2 rotationDirection = new Vector2(horizontalRotation, verticalRotation) * Time.deltaTime;
-				manipulatorInputComponent.RotationDirection = rotationDirection;
+				rotationInputComponent.RotationDirection = rotationDirection;
 			}
 		}
 	}
