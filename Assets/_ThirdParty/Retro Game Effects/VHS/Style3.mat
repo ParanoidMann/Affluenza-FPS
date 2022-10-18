@@ -61,5 +61,6 @@ Material:
     - _SineLinesDisplacement: 0
     - _SineLinesSpeed: 0
     - _SineLinesThreshold: 0
+    - _UseNoises: 0
     m_Colors: []
   m_BuildTextureStacks: []

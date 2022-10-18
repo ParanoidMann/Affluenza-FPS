@@ -12,7 +12,7 @@ namespace ParanoidMann.Affluenza.Actor
 
 		private EcsFilter<SettingsComponent> _settingsFilter;
 		private EcsFilter<ActorBaseComponent, PlayerComponent> _playerFilter;
-		private EcsFilter<InputBaseComponent, RotationInputComponent> _rotationFilter;
+		private EcsFilter<InputBaseComponent, InteractionInputComponent> _rotationFilter;
 
 		public void Run()
 		{
@@ -28,14 +28,14 @@ namespace ParanoidMann.Affluenza.Actor
 						ref EcsEntity settingsEntity = ref _settingsFilter.GetEntity(settingsFilterIdx);
 						ref var settingsBase = ref settingsEntity.Get<SettingsComponent>();
 
-						ref var rotationInput = ref inputEntity.Get<RotationInputComponent>();
+						ref var interaction = ref inputEntity.Get<InteractionInputComponent>();
 
 						foreach (int playerFilterIdx in _playerFilter)
 						{
 							ref EcsEntity playerEntity = ref _playerFilter.GetEntity(playerFilterIdx);
 							ref var playerBase = ref playerEntity.Get<ActorBaseComponent>();
 
-							RotatePlayer(rotationInput, settingsBase, playerBase);
+							RotatePlayer(interaction, settingsBase, playerBase);
 						}
 					}
 				}
@@ -43,14 +43,14 @@ namespace ParanoidMann.Affluenza.Actor
 		}
 
 		private void RotatePlayer(
-				RotationInputComponent rotationInput,
+				InteractionInputComponent interaction,
 				SettingsComponent settings,
 				ActorBaseComponent playerBase)
 		{
 			PlayerView playerView = playerBase.GameObject as PlayerView;
 			Transform cameraTransform = playerView.Camera.transform;
 
-			Vector2 deltaRotation = rotationInput.RotationDirection * settings.Sensitivity;
+			Vector2 deltaRotation = interaction.RotationDirection * settings.Sensitivity;
 			deltaRotation.y *= settings.InvertVertical ? 1.0f : -1.0f;
 
 			float pitchAngle = GetPitchAngle(cameraTransform.localEulerAngles, deltaRotation, settings);

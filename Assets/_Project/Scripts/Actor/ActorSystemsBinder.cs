@@ -15,6 +15,7 @@ namespace ParanoidMann.Affluenza.Actor
 		private readonly PlayerMoveSystem _playerMoveSystem;
 		private readonly PlayerFlashlightSystem _playerFlashlightSystem;
 		private readonly PlayerRotationSystem _playerRotationSystem;
+		private readonly PlayerAnimationSystem _playerAnimationSystem;
 
 		private EcsSystems _actorSystems;
 
@@ -25,7 +26,8 @@ namespace ParanoidMann.Affluenza.Actor
 				PlayerWithWeaponBuildSystem playerWithWeaponBuildSystem,
 				PlayerMoveSystem playerMoveSystem,
 				PlayerFlashlightSystem playerFlashlightSystem,
-				PlayerRotationSystem playerRotationSystem)
+				PlayerRotationSystem playerRotationSystem,
+				PlayerAnimationSystem playerAnimationSystem)
 		{
 			_world = world;
 
@@ -34,6 +36,7 @@ namespace ParanoidMann.Affluenza.Actor
 			_playerMoveSystem = playerMoveSystem;
 			_playerFlashlightSystem = playerFlashlightSystem;
 			_playerRotationSystem = playerRotationSystem;
+			_playerAnimationSystem = playerAnimationSystem;
 
 			Init();
 		}
@@ -47,6 +50,7 @@ namespace ParanoidMann.Affluenza.Actor
 					.Add(_playerMoveSystem)
 					.Add(_playerFlashlightSystem)
 					.Add(_playerRotationSystem)
+					.Add(_playerAnimationSystem)
 					.Init();
 		}
 

@@ -6,20 +6,20 @@ namespace ParanoidMann.Affluenza.Input
 	internal class MoveInputSystem :
 			IEcsRunSystem
 	{
-		private EcsFilter<MoveInputComponent> _filter;
+		private EcsFilter<InteractionInputComponent> _filter;
 
 		public void Run()
 		{
 			foreach (int filterIdx in _filter)
 			{
 				ref EcsEntity entity = ref _filter.GetEntity(filterIdx);
-				ref var moveInputComponent = ref entity.Get<MoveInputComponent>();
+				ref var interactionComponent = ref entity.Get<InteractionInputComponent>();
 
 				float horizontalMove = UnityEngine.Input.GetAxisRaw("Horizontal");
 				float verticalMove = UnityEngine.Input.GetAxisRaw("Vertical");
 
 				Vector3 moveDirection = new Vector3(horizontalMove, 0.0f, verticalMove) * Time.deltaTime;
-				moveInputComponent.Direction = moveDirection;
+				interactionComponent.MoveDirection = moveDirection;
 			}
 		}
 	}

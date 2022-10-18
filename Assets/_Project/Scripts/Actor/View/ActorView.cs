@@ -8,8 +8,11 @@ namespace ParanoidMann.Affluenza.Actor
 	{
 		[Header("Actor")]
 		[SerializeField]
+		private Animator _animator;
+		[SerializeField]
 		private NavMeshAgent _navMeshAgent;
 
+		public Animator Animator => _animator;
 		public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
 		private void OnValidate()

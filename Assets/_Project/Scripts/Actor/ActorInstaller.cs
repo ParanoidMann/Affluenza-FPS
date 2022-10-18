@@ -36,6 +36,7 @@ namespace ParanoidMann.Affluenza.Actor
 			Container.Bind<PlayerMoveSystem>().AsSingle();
 			Container.Bind<PlayerRotationSystem>().AsSingle();
 			Container.Bind<PlayerFlashlightSystem>().AsSingle();
+			Container.Bind<PlayerAnimationSystem>().AsSingle();
 
 			Container.Bind<EnemyBuildSystem>().AsSingle();
 

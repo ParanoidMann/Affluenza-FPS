@@ -19,8 +19,6 @@ namespace ParanoidMann.Affluenza.Input
 			EcsEntity input = _ecsWorld.NewEntity();
 
 			ref var inputBase = ref input.Get<InputBaseComponent>();
-			ref var moveInput = ref input.Get<MoveInputComponent>();
-			ref var rotationInput = ref input.Get<RotationInputComponent>();
 			ref var interactionInput = ref input.Get<InteractionInputComponent>();
 
 			inputBase.IsInputActive = false;

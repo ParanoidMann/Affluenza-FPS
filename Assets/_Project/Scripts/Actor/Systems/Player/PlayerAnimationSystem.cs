@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
-
 using Leopotam.Ecs;
 using ParanoidMann.Affluenza.Input;
 
 namespace ParanoidMann.Affluenza.Actor
 {
-	internal class PlayerMoveSystem :
+	internal class PlayerAnimationSystem :
 			IEcsRunSystem
 	{
+		private static readonly int SpeedAnimatorHash = Animator.StringToHash("Speed");
+		private static readonly int StrafeAnimatorHash = Animator.StringToHash("Strafe");
+
 		private EcsFilter<ActorBaseComponent, PlayerComponent> _playerFilter;
 		private EcsFilter<InputBaseComponent, InteractionInputComponent> _moveFilter;
 
@@ -27,9 +28,8 @@ namespace ParanoidMann.Affluenza.Actor
 					{
 						ref EcsEntity playerEntity = ref _playerFilter.GetEntity(playerFilterIdx);
 						ref var playerBase = ref playerEntity.Get<ActorBaseComponent>();
-						ref var playerInfo = ref playerEntity.Get<PlayerComponent>();
 
-						MovePlayer(interaction, playerBase, playerInfo);
+						MovePlayer(interaction, playerBase);
 					}
 				}
 			}
@@ -37,24 +37,20 @@ namespace ParanoidMann.Affluenza.Actor
 
 		private void MovePlayer(
 				InteractionInputComponent interaction,
-				ActorBaseComponent playerBase,
-				PlayerComponent playerInfo)
+				ActorBaseComponent playerBase)
 		{
-			Transform transform = playerBase.GameObject.transform;
-			Vector3 moveDirection = interaction.MoveDirection * playerInfo.MoveSpeed;
+			PlayerView playerView = playerBase.GameObject as PlayerView;
+			Animator animator = playerView.Animator;
 
-			Vector3 newPosition = transform.position
-					+ transform.right * moveDirection.x
-					+ transform.forward * moveDirection.z;
+			animator.SetFloat(SpeedAnimatorHash, GetMoveAnimationValue(interaction.MoveDirection.z));
+			animator.SetFloat(StrafeAnimatorHash, GetMoveAnimationValue(interaction.MoveDirection.x));
+		}
 
-			if (NavMesh.SamplePosition(
-						newPosition,
-						out NavMeshHit hit,
-						playerInfo.MaxMoveDistance,
-						NavMesh.AllAreas))
-			{
-				transform.position = hit.position;
-			}
+		private float GetMoveAnimationValue(float direction)
+		{
+			if (direction > 0.0f) return 0.5f;
+			if (direction < 0.0f) return -0.5f;
+			return 0.0f;
 		}
 	}
 }
