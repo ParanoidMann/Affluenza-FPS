@@ -1,6 +1,5 @@
-﻿using ParanoidMann.Core;
-
-using UnityEngine;
+﻿using UnityEngine;
+using ParanoidMann.Core;
 
 namespace ParanoidMann.Affluenza.Actor
 {
