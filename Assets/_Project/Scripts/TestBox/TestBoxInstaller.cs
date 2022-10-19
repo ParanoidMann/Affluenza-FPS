@@ -1,5 +1,4 @@
-﻿using System;
-using Tayx.Graphy;
+﻿using Tayx.Graphy;
 
 using ParanoidMann.Core;
 using ParanoidMann.Core.PLog;
@@ -9,11 +8,6 @@ namespace ParanoidMann.Affluenza.TestBox
 {
 	public class TestBoxInstaller : SceneInstaller<TestBoxInstaller>
 	{
-		private static readonly Type[] Systems =
-		{
-				typeof(TestBoxBuildSystem)
-		};
-
 		protected override string SceneName => SceneNames.TestBox;
 
 		public override void InstallBindings()
@@ -34,9 +28,7 @@ namespace ParanoidMann.Affluenza.TestBox
 
 		protected override void OnSceneLoaded()
 		{
-			Container.BindInterfacesAndSelfTo<TestBoxSystemsBinder>().AsSingle().NonLazy();
-			Container.Bind(Systems).AsSingle();
-
+			Container.BindInterfacesAndSelfTo<TestBoxSystemsBinder>().AsSingle();
 			Container.Resolve<TestBoxSystemsBinder>();
 		}
 
@@ -44,11 +36,6 @@ namespace ParanoidMann.Affluenza.TestBox
 		{
 			Container.Resolve<TestBoxSystemsBinder>().Dispose();
 			Container.Unbind<TestBoxSystemsBinder>();
-
-			foreach (Type system in Systems)
-			{
-				Container.Unbind(system);
-			}
 		}
 	}
 }

@@ -11,17 +11,8 @@ namespace ParanoidMann.Affluenza.TestBox
 	internal class TestBoxBuildSystem :
 			IEcsInitSystem
 	{
-		private readonly IActorBuilder _actorBuilder;
-		private readonly IPrefabProvider _prefabProvider;
-
-		[Inject]
-		private TestBoxBuildSystem(
-				IPrefabProvider prefabProvider,
-				IActorBuilder actorBuilder)
-		{
-			_prefabProvider = prefabProvider;
-			_actorBuilder = actorBuilder;
-		}
+		private IActorBuilder _actorBuilder;
+		private IPrefabProvider _prefabProvider;
 
 		public void Init()
 		{
@@ -37,6 +28,15 @@ namespace ParanoidMann.Affluenza.TestBox
 			testBox.Surface.BuildNavMesh();
 
 			return testBox;
+		}
+
+		[Inject]
+		private void Inject(
+				IPrefabProvider prefabProvider,
+				IActorBuilder actorBuilder)
+		{
+			_prefabProvider = prefabProvider;
+			_actorBuilder = actorBuilder;
 		}
 	}
 }

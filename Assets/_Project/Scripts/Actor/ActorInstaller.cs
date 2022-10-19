@@ -12,7 +12,6 @@ namespace ParanoidMann.Affluenza.Actor
 			PLog.Info($"Started binding {GetType()}");
 
 			BindConfigs();
-			BindSystems();
 			BindServices();
 
 			Container.BindInterfacesAndSelfTo<ActorSystemsBinder>().AsSingle();
@@ -27,20 +26,6 @@ namespace ParanoidMann.Affluenza.Actor
 					.FromAddressable(AddressablePaths.PlayerConfig).AsCached();
 			Container.Bind<PlayerScriptableObject>().WithId(PlayerSubType.PlayerWithWeapon)
 					.FromAddressable(AddressablePaths.PlayerWithWeaponConfig).AsCached();
-		}
-
-		private void BindSystems()
-		{
-			Container.Bind<PlayerBuildSystem>().AsSingle();
-			Container.Bind<PlayerWithWeaponBuildSystem>().AsSingle();
-			Container.Bind<PlayerMoveSystem>().AsSingle();
-			Container.Bind<PlayerRotationSystem>().AsSingle();
-			Container.Bind<PlayerFlashlightSystem>().AsSingle();
-			Container.Bind<PlayerAnimationSystem>().AsSingle();
-
-			Container.Bind<EnemyBuildSystem>().AsSingle();
-
-			Container.Bind<NpcBuildSystem>().AsSingle();
 		}
 
 		private void BindServices()

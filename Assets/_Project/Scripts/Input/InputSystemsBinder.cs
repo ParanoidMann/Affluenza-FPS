@@ -1,6 +1,7 @@
 ﻿using System;
 using Zenject;
 using Leopotam.Ecs;
+using ParanoidMann.Core;
 
 namespace ParanoidMann.Affluenza.Input
 {
@@ -8,58 +9,29 @@ namespace ParanoidMann.Affluenza.Input
 			IDisposable,
 			ITickable
 	{
-		private readonly EcsWorld _world;
-
-		private readonly SettingsBuildSystem _settingsBuildSystem;
-
-		private readonly MoveInputSystem _moveInputSystem;
-		private readonly InputBuildSystem _inputBuildSystem;
-		private readonly RotationInputSystem _rotationInputSystem;
-		private readonly InteractionInputSystem _interactionInputSystem;
-
-		private EcsSystems _inputSystems;
+		private EcsSystems _systems;
 
 		[Inject]
-		private InputSystemsBinder(
-				EcsWorld world,
-				SettingsBuildSystem settingsBuildSystem,
-				MoveInputSystem moveInputSystem,
-				InputBuildSystem inputBuildSystem,
-				RotationInputSystem rotationInputSystem,
-				InteractionInputSystem interactionInputSystem)
+		private InputSystemsBinder(EcsWorld world, DiContainer container)
 		{
-			_world = world;
-
-			_settingsBuildSystem = settingsBuildSystem;
-
-			_moveInputSystem = moveInputSystem;
-			_inputBuildSystem = inputBuildSystem;
-			_rotationInputSystem = rotationInputSystem;
-			_interactionInputSystem = interactionInputSystem;
-
-			Init();
-		}
-
-		private void Init()
-		{
-			_inputSystems = new EcsSystems(_world);
-			_inputSystems
-					.Add(_settingsBuildSystem)
-					.Add(_inputBuildSystem)
-					.Add(_moveInputSystem)
-					.Add(_rotationInputSystem)
-					.Add(_interactionInputSystem)
+			_systems = new EcsSystems(world);
+			_systems
+					.Add(container.Create<SettingsBuildSystem>())
+					.Add(container.Create<MoveInputSystem>())
+					.Add(container.Create<InputBuildSystem>())
+					.Add(container.Create<RotationInputSystem>())
+					.Add(container.Create<InteractionInputSystem>())
 					.Init();
 		}
 
 		public void Tick()
 		{
-			_inputSystems?.Run();
+			_systems?.Run();
 		}
 
 		public void Dispose()
 		{
-			_inputSystems?.Destroy();
+			_systems?.Destroy();
 		}
 	}
 }

@@ -6,13 +6,7 @@ namespace ParanoidMann.Affluenza.Input
 	internal class InputBuildSystem :
 			IEcsInitSystem
 	{
-		private readonly EcsWorld _ecsWorld;
-
-		[Inject]
-		private InputBuildSystem(EcsWorld ecsWorld)
-		{
-			_ecsWorld = ecsWorld;
-		}
+		private EcsWorld _ecsWorld;
 
 		public void Init()
 		{
@@ -22,6 +16,12 @@ namespace ParanoidMann.Affluenza.Input
 			ref var interactionInput = ref input.Get<InteractionInputComponent>();
 
 			inputBase.IsInputActive = false;
+		}
+
+		[Inject]
+		private void Inject(EcsWorld ecsWorld)
+		{
+			_ecsWorld = ecsWorld;
 		}
 	}
 }

@@ -7,17 +7,8 @@ namespace ParanoidMann.Affluenza.Input
 	internal class SettingsBuildSystem :
 			IEcsInitSystem
 	{
-		private readonly EcsWorld _ecsWorld;
-		private readonly GameSettingsScriptableObject _gameSettingsConfig;
-
-		[Inject]
-		private SettingsBuildSystem(
-				EcsWorld ecsWorld,
-				GameSettingsScriptableObject gameSettingsConfig)
-		{
-			_ecsWorld = ecsWorld;
-			_gameSettingsConfig = gameSettingsConfig;
-		}
+		private EcsWorld _ecsWorld;
+		private GameSettingsScriptableObject _gameSettingsConfig;
 
 		public void Init()
 		{
@@ -31,6 +22,15 @@ namespace ParanoidMann.Affluenza.Input
 			// TODO : Load from cache
 			settingsComponent.Sensitivity = 150.0f;
 			settingsComponent.InvertVertical = false;
+		}
+
+		[Inject]
+		private void Inject(
+				EcsWorld ecsWorld,
+				GameSettingsScriptableObject gameSettingsConfig)
+		{
+			_ecsWorld = ecsWorld;
+			_gameSettingsConfig = gameSettingsConfig;
 		}
 	}
 }

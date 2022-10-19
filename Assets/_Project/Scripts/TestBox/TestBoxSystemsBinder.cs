@@ -1,6 +1,7 @@
 ﻿using System;
 using Zenject;
 using Leopotam.Ecs;
+using ParanoidMann.Core;
 
 namespace ParanoidMann.Affluenza.TestBox
 {
@@ -8,27 +9,14 @@ namespace ParanoidMann.Affluenza.TestBox
 			IDisposable,
 			ITickable
 	{
-		private readonly EcsWorld _world;
-		private readonly TestBoxBuildSystem _buildSystem;
-
-		private EcsSystems _testBoxSystems;
+		private readonly EcsSystems _testBoxSystems;
 
 		[Inject]
-		private TestBoxSystemsBinder(
-				EcsWorld world,
-				TestBoxBuildSystem buildSystem)
+		private TestBoxSystemsBinder(EcsWorld world, DiContainer container)
 		{
-			_world = world;
-			_buildSystem = buildSystem;
-
-			Init();
-		}
-
-		private void Init()
-		{
-			_testBoxSystems = new EcsSystems(_world);
+			_testBoxSystems = new EcsSystems(world);
 			_testBoxSystems
-					.Add(_buildSystem)
+					.Add(container.Create<TestBoxBuildSystem>())
 					.Init();
 		}
 
