@@ -29,13 +29,14 @@ namespace ParanoidMann.Affluenza.Actor
 			}
 		}
 
-		private void FillPlayer(EcsEntity playerEntity, PlayerScriptableObject playerConfig)
+		private void FillPlayer(EcsEntity playerEntity, PlayerWithWeaponScriptableObject playerConfig)
 		{
 			ref var playerComponent = ref playerEntity.Get<PlayerComponent>();
 			ref var playerWithWeaponComponent = ref playerEntity.Get<PlayerWithWeaponComponent>();
 
 			playerComponent.MoveSpeed = playerConfig.MoveSpeed;
 			playerComponent.MaxMoveDistance = playerConfig.MaxMoveDistance;
+			playerWithWeaponComponent.RunSpeedMultiplier = playerConfig.RunSpeedMultiplier;
 		}
 
 		private void EnableInput()

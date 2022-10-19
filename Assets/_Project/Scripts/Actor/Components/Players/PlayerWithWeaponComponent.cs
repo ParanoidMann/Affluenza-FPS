@@ -2,5 +2,6 @@
 {
 	internal struct PlayerWithWeaponComponent
 	{
+		public float RunSpeedMultiplier;
 	}
 }

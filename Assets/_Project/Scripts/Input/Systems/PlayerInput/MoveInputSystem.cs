@@ -17,9 +17,11 @@ namespace ParanoidMann.Affluenza.Input
 
 				float horizontalMove = UnityEngine.Input.GetAxisRaw("Horizontal");
 				float verticalMove = UnityEngine.Input.GetAxisRaw("Vertical");
+				bool isRunning = UnityEngine.Input.GetButton("Run");
 
 				Vector3 moveDirection = new Vector3(horizontalMove, 0.0f, verticalMove) * Time.deltaTime;
 				interactionComponent.MoveDirection = moveDirection;
+				interactionComponent.IsRunning = isRunning;
 			}
 		}
 	}

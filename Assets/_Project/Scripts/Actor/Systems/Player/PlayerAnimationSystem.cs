@@ -29,7 +29,7 @@ namespace ParanoidMann.Affluenza.Actor
 						ref EcsEntity playerEntity = ref _playerFilter.GetEntity(playerFilterIdx);
 						ref var playerBase = ref playerEntity.Get<ActorBaseComponent>();
 
-						MovePlayer(interaction, playerBase);
+						MovePlayer(interaction, playerEntity, playerBase);
 					}
 				}
 			}
@@ -37,20 +37,38 @@ namespace ParanoidMann.Affluenza.Actor
 
 		private void MovePlayer(
 				InteractionInputComponent interaction,
+				EcsEntity playerEntity,
 				ActorBaseComponent playerBase)
 		{
 			PlayerView playerView = playerBase.GameObject as PlayerView;
 			Animator animator = playerView.Animator;
 
-			animator.SetFloat(SpeedAnimatorHash, GetMoveAnimationValue(interaction.MoveDirection.z));
-			animator.SetFloat(StrafeAnimatorHash, GetMoveAnimationValue(interaction.MoveDirection.x));
+			bool isRunning = IsRunning(playerEntity, interaction);
+
+			animator.SetFloat(SpeedAnimatorHash, GetMoveAnimationValue(interaction.MoveDirection.z, isRunning));
+			animator.SetFloat(StrafeAnimatorHash, GetMoveAnimationValue(interaction.MoveDirection.x, isRunning));
 		}
 
-		private float GetMoveAnimationValue(float direction)
+		private float GetMoveAnimationValue(float direction, bool isRunning)
 		{
-			if (direction > 0.0f) return 0.5f;
-			if (direction < 0.0f) return -0.5f;
+			if (direction > 0.0f)
+			{
+				if (isRunning) return 1.0f;
+				return 0.5f;
+			}
+
+			if (direction < 0.0f)
+			{
+				if (isRunning) return -1.0f;
+				return -0.5f;
+			}
+
 			return 0.0f;
+		}
+
+		private bool IsRunning(EcsEntity playerEntity, InteractionInputComponent interaction)
+		{
+			return playerEntity.Has<PlayerWithWeaponComponent>() && interaction.IsRunning;
 		}
 	}
 }

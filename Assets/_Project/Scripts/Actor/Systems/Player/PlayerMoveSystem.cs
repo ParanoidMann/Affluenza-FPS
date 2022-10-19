@@ -29,7 +29,7 @@ namespace ParanoidMann.Affluenza.Actor
 						ref var playerBase = ref playerEntity.Get<ActorBaseComponent>();
 						ref var playerInfo = ref playerEntity.Get<PlayerComponent>();
 
-						MovePlayer(interaction, playerBase, playerInfo);
+						MovePlayer(interaction, playerBase, playerEntity, playerInfo);
 					}
 				}
 			}
@@ -38,10 +38,13 @@ namespace ParanoidMann.Affluenza.Actor
 		private void MovePlayer(
 				InteractionInputComponent interaction,
 				ActorBaseComponent playerBase,
+				EcsEntity playerEntity,
 				PlayerComponent playerInfo)
 		{
 			Transform transform = playerBase.GameObject.transform;
-			Vector3 moveDirection = interaction.MoveDirection * playerInfo.MoveSpeed;
+
+			float runMultiplier = GetRunMultiplier(playerEntity, interaction);
+			Vector3 moveDirection = interaction.MoveDirection * playerInfo.MoveSpeed * runMultiplier;
 
 			Vector3 newPosition = transform.position
 					+ transform.right * moveDirection.x
@@ -55,6 +58,17 @@ namespace ParanoidMann.Affluenza.Actor
 			{
 				transform.position = hit.position;
 			}
+		}
+
+		private float GetRunMultiplier(EcsEntity playerEntity, InteractionInputComponent interaction)
+		{
+			if (playerEntity.Has<PlayerWithWeaponComponent>() && interaction.IsRunning)
+			{
+				ref var playerComponent = ref playerEntity.Get<PlayerWithWeaponComponent>();
+				return playerComponent.RunSpeedMultiplier;
+			}
+
+			return 1.0f;
 		}
 	}
 }

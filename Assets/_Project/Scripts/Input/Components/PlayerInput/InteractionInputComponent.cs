@@ -6,6 +6,7 @@ namespace ParanoidMann.Affluenza.Input
 	{
 		public Vector2 RotationDirection;
 		public Vector3 MoveDirection;
+		public bool IsRunning;
 		public bool IsFlashlightActive;
 	}
 }
